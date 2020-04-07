@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+{% block body_class %}template-homepage{% endblock %}
+
+{% block extra_css %}
+
+{% comment %}
+Delete the line below if you're just getting started and want to remove the welcome screen!
+{% endcomment %}
+<link rel="stylesheet" href="{% static 'css/welcome_page.css' %}">
+<link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+
+{% endblock extra_css %}
+
+{% block content %}
+
+<div class="container home">
+	<div class="row">
+		<div class="col-md-6 left-sec">
+			<h1>
+				{{ page.heading|richtext }}
+			</h1>
+			<br>
+			<h4>
+				{{ page.desc|richtext }}
+			</h4>
+			<br>
+			<div class="row cards-row">
+			{% with blocks=page.service_card %}
+				{% for block in blocks %}
+					<div class="col-md-6">
+						{{ block }}
+					</div>
+				{% endfor %}
+			{% endwith %}
+			</div>
+		</div>
+
+		<div class="col-md-6 right-img">
+			<img src="{% static 'img/tips.jpg' %}" height="775">
+		</div>
+
+		<div class="col-md-6">
+			
+		</div>
+
+
+
+	</div>
+	
+</div>
+
+{% endblock content %}

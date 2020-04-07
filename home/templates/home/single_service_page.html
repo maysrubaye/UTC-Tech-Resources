@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+{% block body_class %}template-homepage{% endblock %}
+
+{% block extra_css %}
+
+{% comment %}
+Delete the line below if you're just getting started and want to remove the welcome screen!
+{% endcomment %}
+<link rel="stylesheet" href="{% static 'css/welcome_page.css' %}">
+<link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+
+{% endblock extra_css %}
+
+{% block content %}
+
+<div class="container single">
+	<div class="row">
+		<div class="col-md-12">
+			<img class="arrow-img" src="{% static 'img/arrow.png' %}" height="25">
+
+			<h4 class="arrow">
+				{{ page.backToMain|richtext }}
+			</h4>
+			<br>
+			<h1>
+				{{ page.heading|richtext }}
+			</h1>
+		</div>
+
+			{% with blocks=page.steps %}
+				{% for block in blocks %}
+					<div class="col-md-4">
+						{{ block }}
+					</div>
+				{% endfor %}
+			{% endwith %}
+
+	</div>
+	
+</div>
+<br><br><br><br>
+{% endblock content %}
