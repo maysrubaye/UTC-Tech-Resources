@@ -1,1 +1,1 @@
-web: gunicorn site_name.wsgi --log-file -
+web: gunicorn utcTechSources.wsgi --log-file -
