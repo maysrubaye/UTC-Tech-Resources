@@ -8,7 +8,6 @@ import os
 env = os.environ.copy()
 SECRET_KEY = env['SECRET_KEY']
 
-DEBUG = True
 
 DATABASES['default'] =  dj_database_url.config()
     
@@ -31,6 +30,7 @@ COMPRESS_CSS_HASHING_METHOD = 'content'
 MEDIA_URL = "https://%s/" % AWS_S3_CUSTOM_DOMAIN
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
+DEBUG = False
 
 try:
     from .local import *
