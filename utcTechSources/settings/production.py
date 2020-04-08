@@ -2,20 +2,14 @@ from __future__ import absolute_import, unicode_literals
 from .base import *
 import dj_database_url
 
+DEBUG = False
+
 import os
 
 
 env = os.environ.copy()
 SECRET_KEY = env['SECRET_KEY']
 
-
-DATABASES['default'] =  dj_database_url.config()
-    
-# Honor the 'X-Forwarded-Proto' header for request.is_secure()
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
-# Allow all host headers
-ALLOWED_HOSTS = ['*']
 
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
@@ -27,10 +21,20 @@ COMPRESS_CSS_FILTERS = [
 ]
 COMPRESS_CSS_HASHING_METHOD = 'content'
 
+
+
+DATABASES['default'] =  dj_database_url.config()
+    
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# Allow all host headers
+ALLOWED_HOSTS = ['*']
+
+
 MEDIA_URL = "https://%s/" % AWS_S3_CUSTOM_DOMAIN
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-DEBUG = False
 
 try:
     from .local import *
