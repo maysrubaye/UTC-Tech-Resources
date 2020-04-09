@@ -140,6 +140,11 @@ h4 > .rich-text > p {
         padding-top: 5%;
     }
 
+    .single-service > .rich-text > p {
+        font-size: 2rem;
+        line-height: 2.5rem;
+    }
+
     .arrow > div > p {
     margin-bottom: 0;
     margin-top: 5%;

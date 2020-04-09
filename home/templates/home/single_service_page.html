@@ -9,7 +9,6 @@
 {% comment %}
 Delete the line below if you're just getting started and want to remove the welcome screen!
 {% endcomment %}
-<link rel="stylesheet" href="{% static 'css/welcome_page.css' %}">
 <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
 
 {% endblock extra_css %}
@@ -27,7 +26,7 @@ Delete the line below if you're just getting started and want to remove the welc
 			</h4>
 			</a>
 			<br>
-			<h1>
+			<h1 class="single-service">
 				{{ page.heading|richtext }}
 			</h1>
 		</div>
