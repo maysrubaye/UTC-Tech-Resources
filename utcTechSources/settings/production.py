@@ -2,7 +2,7 @@ from __future__ import absolute_import, unicode_literals
 from .base import *
 import dj_database_url
 
-DEBUG = True
+DEBUG = False
 
 import os
 
