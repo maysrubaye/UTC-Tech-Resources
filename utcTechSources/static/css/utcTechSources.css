@@ -97,12 +97,10 @@ h1 > .rich-text > p {
     font-size: 5rem;
     color: #114B8B;
     font-weight: 800;
-    line-height: 5rem;
 }
 
 .single-service > .rich-text > p {
     font-size: 3.1rem;
-    line-height: 2.5rem;
     margin-bottom: 5%;
 }
 
@@ -158,13 +156,11 @@ h4 > .rich-text > p {
         font-size: 3.5rem;
         color: #114B8B;
         font-weight: 800;
-        line-height: 3.5rem;
         padding-top: 5%;
     }
 
     .single-service > .rich-text > p {
         font-size: 2rem;
-        line-height: 2.5rem;
     }
 
     .arrow > div > p {
