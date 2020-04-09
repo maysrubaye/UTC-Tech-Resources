@@ -27,10 +27,10 @@ Delete the line below if you're just getting started and want to remove the welc
 				{{ page.desc|richtext }}
 			</h4>
 			<br>
-			<div class="row cards-row">
+			<div class="row cards-row justify-content-center">
 			{% with blocks=page.service_card %}
 				{% for block in blocks %}
-					<div class="col-md-6">
+					<div class="col-md-5">
 						{{ block }}
 					</div>
 				{% endfor %}
