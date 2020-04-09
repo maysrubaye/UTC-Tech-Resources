@@ -103,6 +103,7 @@ h1 > .rich-text > p {
 .single-service > .rich-text > p {
     font-size: 3.1rem;
     line-height: 2.5rem;
+    margin-bottom: 5%;
 }
 
 h4 > .rich-text > p {
