@@ -73,9 +73,12 @@ button > .rich-text > p > a {
     margin-right: 6%;
 }
 
+.custom-footer > a > div {
+    color: white;
+}
+
 .custom-footer {
     background-color: #114B8B;
-    color: white;
     width: 100vw!important;
     margin: 0!important;
     padding-top: 2rem!important;
@@ -94,7 +97,7 @@ h4 > .rich-text > p {
     font-size: 1.2rem;
 }
 
-.col-md-6 > a > img {
+.col-md-5 > a > img {
     width: 100%;
     height: 100%;
 }
@@ -104,7 +107,7 @@ h4 > .rich-text > p {
 }
 
 
-.col-md-6.right-img {
+.col-md-5.right-img {
     padding: 0!important;
 
 }
@@ -116,7 +119,7 @@ h4 > .rich-text > p {
 }
 
 
-.col-md-12 > .arrow-img {
+.col-md-12 > a > .arrow-img {
     position: absolute;
     margin-bottom: 0;
     margin-top: 5%;
