@@ -83,16 +83,18 @@ button > .rich-text > p > a {
 }
 
 h1 > .rich-text > p {
-    font-size: 5.5rem;
+    font-size: 5rem;
     color: #114B8B;
     font-weight: 800;
     line-height: 5rem;
 }
+
 h4 > .rich-text > p {
     margin-bottom: 5%;
+    font-size: 1.2rem;
 }
 
-.col-md-6 > img {
+.col-md-6 > a > img {
     width: 100%;
     height: 100%;
 }
@@ -120,14 +122,19 @@ h4 > .rich-text > p {
     margin-top: 5%;
 }
 
+.footer-content {
+    padding: 5px 50px;
+    text-align: center;
+}
 
 @media (max-width: 415px) {
 
     h1 > .rich-text > p {
-        font-size: 3.2rem;
+        font-size: 3.5rem;
         color: #114B8B;
         font-weight: 800;
         line-height: 3.5rem;
+        padding-top: 5%;
     }
 
     .arrow > div > p {
