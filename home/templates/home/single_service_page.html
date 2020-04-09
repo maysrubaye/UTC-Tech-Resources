@@ -31,13 +31,15 @@ Delete the line below if you're just getting started and want to remove the welc
 			</h1>
 		</div>
 
+		<div class="card-columns">
 			{% with blocks=page.steps %}
 				{% for block in blocks %}
-					<div class="col-md-4">
+					<div class="col-md-12">
 						{{ block }}
 					</div>
 				{% endfor %}
 			{% endwith %}
+		</div>
 
 	</div>
 	

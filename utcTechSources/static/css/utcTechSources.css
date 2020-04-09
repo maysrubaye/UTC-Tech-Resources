@@ -35,6 +35,11 @@ body {
     border: none;
 }
 
+.card.single-service {
+    text-align: left;
+    margin: 2%;
+}
+
 .card:hover {
     transform: translateY(-5px) scale(1.05) translateZ(0);
     transition: .3s ease;
@@ -49,6 +54,9 @@ body {
     color: #D73F34;
 }
 
+.card-columns > .col-md-12 {
+    padding: 0;
+}
 
 button > .rich-text > p > a {
     text-decoration: none;
@@ -92,6 +100,11 @@ h1 > .rich-text > p {
     line-height: 5rem;
 }
 
+.single-service > .rich-text > p {
+    font-size: 3.1rem;
+    line-height: 2.5rem;
+}
+
 h4 > .rich-text > p {
     margin-bottom: 5%;
     font-size: 1.2rem;
@@ -129,6 +142,14 @@ h4 > .rich-text > p {
     padding: 5px 50px;
     text-align: center;
 }
+
+
+.card-columns {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+}
+
 
 @media (max-width: 415px) {
 
