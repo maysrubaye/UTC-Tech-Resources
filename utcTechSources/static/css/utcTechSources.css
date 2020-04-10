@@ -149,6 +149,9 @@ h4 > .rich-text > p {
     column-count: 2;
 }
 
+.rich-text > div {
+    padding: 0!important;
+}
 
 @media (max-width: 415px) {
 
