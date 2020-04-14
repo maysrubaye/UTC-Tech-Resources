@@ -36,6 +36,10 @@
     <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
 
+        {% block navbar %}
+            {% include 'nav.html' %}
+        {% endblock navbar %}
+
         {% block content %}{% endblock %}
 
         {# Global javascript #}
