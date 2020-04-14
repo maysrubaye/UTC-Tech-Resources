@@ -12,10 +12,14 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from dotenv import load_dotenv
+
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
 
+project_folder = os.path.expanduser('~/utcTechSources')
+load_dotenv(os.path.join(project_folder, '.env'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
@@ -167,7 +171,7 @@ WAGTAIL_SITE_NAME = "utcTechSources"
 BASE_URL = 'http://example.com'
 
 AWS_STORAGE_BUCKET_NAME = 'utc-tech-info'	
-AWS_ACCESS_KEY_ID = 'AKIAIRFS3W6CVBC3P2WQ'	
-AWS_SECRET_ACCESS_KEY = 'wmD8rA9OME9TIDp5nV0pZ/tWoLqdydHumdZt4NLU'	
+AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 

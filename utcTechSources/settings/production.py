@@ -5,10 +5,15 @@ import dj_database_url
 DEBUG = True
 
 import os
+from dotenv import load_dotenv
 
+project_folder = os.path.expanduser('~/utcTechSources')  # adjust as appropriate
+load_dotenv(os.path.join(project_folder, '.env'))
+
+print("here" + project_folder)
 
 env = os.environ.copy()
-SECRET_KEY = env['SECRET_KEY']
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 
 
