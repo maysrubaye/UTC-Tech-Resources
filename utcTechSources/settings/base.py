@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'wagtail.admin',
     'wagtail.core',
 
+    'wagtail.contrib.postgres_search',
+
     'modelcluster',
     'taggit',
 
@@ -93,6 +95,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'utcTechSources.wsgi.application'
 
+
+WAGTAILSEARCH_BACKENDS = {
+    'default': {
+        'BACKEND': 'wagtail.contrib.postgres_search.backend',
+    },
+}
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases

@@ -6,6 +6,8 @@ from wagtail.core import blocks, hooks
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
 from utcTechSources import customBlocks
+from wagtail.search import index
+
 
 class HomePage(Page):
     heading = RichTextField(blank=True)
@@ -17,6 +19,12 @@ class HomePage(Page):
     	FieldPanel('heading'),
     	FieldPanel('desc'),
     	StreamFieldPanel('service_card')
+    ]
+
+    search_fields = Page.search_fields + [ # Inherit search_fields from Page
+        index.SearchField('heading', partial_match=True),
+        index.SearchField('desc', partial_match=True),
+        index.SearchField('service_card', partial_match=True),
     ]
 
 
@@ -31,3 +39,15 @@ class SingleServicePage(Page):
 		FieldPanel('heading'),
 		StreamFieldPanel('steps')
 	]
+
+	search_fields = Page.search_fields + [ # Inherit search_fields from Page
+        index.SearchField('heading', partial_match=True),
+        index.SearchField('steps', partial_match=True),
+    ]
+
+
+
+
+
+
+

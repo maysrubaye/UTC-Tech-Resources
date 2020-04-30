@@ -21,11 +21,11 @@ Delete the line below if you're just getting started and want to remove the welc
 			<h1>
 				{{ page.heading|richtext }}
 			</h1>
-			<br>
 			<h4>
 				{{ page.desc|richtext }}
 			</h4>
-			<br>
+				{% include 'includes/searchbar.html' %}
+			<br><br>
 			<div class="row cards-row justify-content-center">
 			{% with blocks=page.service_card %}
 				{% for block in blocks %}
