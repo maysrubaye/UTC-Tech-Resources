@@ -6,13 +6,21 @@
 {% block title %}Search{% endblock %}
 
 {% block content %}
+<div class="container search-page">
+    <div class="row">
+        <div class="col-md-12">
+            <a href="/">
+                <h4 style="margin-bottom: 0;">
+                    < Back to Main Menu
+                </h4>
+            </a>
+            <br>
+        </div>
+<div class="col-md-12">
     <h1>Search</h1>
 
-    <form action="{% url 'search' %}" method="get">
-        <input type="text" name="query"{% if search_query %} value="{{ search_query }}"{% endif %}>
-        <input type="submit" value="Search" class="button">
-    </form>
-
+    {% include 'includes/searchbar.html' %}
+    <br><br>
     {% if search_results %}
         <ul>
             {% for result in search_results %}
@@ -35,4 +43,7 @@
     {% elif search_query %}
         No results found
     {% endif %}
+    </div>
+    </div>
+</div>
 {% endblock %}

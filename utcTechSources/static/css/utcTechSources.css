@@ -148,67 +148,6 @@ h4 > .rich-text > p {
     padding: 0!important;
 }
 
-@media (max-width: 415px) {
-
-    h1 > .rich-text > p {
-        font-size: 3.5rem;
-        color: #114B8B;
-        font-weight: 800;
-        padding-top: 5%;
-    }
-
-    .single-service > .rich-text > p {
-        font-size: 2rem;
-    }
-
-    .arrow > div > p {
-    margin-bottom: 0;
-    margin-top: 5%;
-    margin-left: 20%;
-    }
-
-    .container.single {
-        width: 90%;
-    }
-
-
-}
-
-@media (min-width: 34em) {
-    .card-columns {
-        -webkit-column-count: 1;
-        -moz-column-count: 1;
-        column-count: 1;
-    }
-}
-
-@media (min-width: 48em) {
-    .card-columns {
-        -webkit-column-count: 1;
-        -moz-column-count: 1;
-        column-count: 1;
-    }
-}
-
-@media (min-width: 62em) {
-    .card-columns {
-        -webkit-column-count: 1;
-        -moz-column-count: 1;
-        column-count: 1;
-    }
-}
-
-@media (min-width: 75em) {
-    .card-columns {
-        -webkit-column-count: 2;
-        -moz-column-count: 2;
-        column-count: 2;
-    }
-}
-
-
-
-
 
 
 /******************************** SEARCH ************************************/
@@ -307,6 +246,83 @@ h4 > .rich-text > p {
   font-weight: 500;
   color: white;
 }
+
+.container.search-page {
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+/******************************** END SEARCH ************************************/
+
+
+@media (max-width: 415px) {
+
+    h1 > .rich-text > p {
+        font-size: 3.5rem;
+        color: #114B8B;
+        font-weight: 800;
+        padding-top: 5%;
+    }
+
+    .single-service > .rich-text > p {
+        font-size: 2rem;
+    }
+
+    .arrow > div > p {
+    margin-bottom: 0;
+    margin-top: 5%;
+    margin-left: 20%;
+    }
+
+    .container.single {
+        width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    .search form {
+        width: 100%;
+    }
+}
+
+
+
+
+@media (min-width: 34em) {
+    .card-columns {
+        -webkit-column-count: 1;
+        -moz-column-count: 1;
+        column-count: 1;
+    }
+}
+
+@media (min-width: 48em) {
+    .card-columns {
+        -webkit-column-count: 1;
+        -moz-column-count: 1;
+        column-count: 1;
+    }
+}
+
+@media (min-width: 62em) {
+    .card-columns {
+        -webkit-column-count: 1;
+        -moz-column-count: 1;
+        column-count: 1;
+    }
+}
+
+@media (min-width: 75em) {
+    .card-columns {
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        column-count: 2;
+    }
+}
+
+
+
+
+
 
 
 
