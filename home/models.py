@@ -21,12 +21,6 @@ class HomePage(Page):
     	StreamFieldPanel('service_card')
     ]
 
-    search_fields = Page.search_fields + [ # Inherit search_fields from Page
-        index.SearchField('heading', partial_match=True),
-        index.SearchField('desc', partial_match=True),
-        index.SearchField('service_card', partial_match=True),
-    ]
-
 
 class SingleServicePage(Page):
 	backToMain = RichTextField(blank=True)
