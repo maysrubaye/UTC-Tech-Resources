@@ -70,9 +70,15 @@ button > .rich-text > p > a {
 
 
 .left-sec {
+    margin: 1% auto;
     margin-top: 2%;
-    padding-left: 4%;
+    padding: 0 5%;
 }
+
+.left-sec h1,  .left-sec h4 {
+  text-align: center;
+}
+
 
 .cards-row {
     margin-top: -5%;
@@ -250,6 +256,10 @@ h4 > .rich-text > p {
 .container.search-page {
     margin-top: 3%;
     margin-bottom: 3%;
+}
+
+.searchform {
+  margin: 2% auto;
 }
 /******************************** END SEARCH ************************************/
 
