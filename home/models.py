@@ -39,7 +39,8 @@ class SingleServicePage(Page):
         index.SearchField('steps', partial_match=True),
     ]
 
-
+class staticQuiz(Page):
+    pass
 
 
 

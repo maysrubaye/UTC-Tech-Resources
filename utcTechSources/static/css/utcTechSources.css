@@ -254,6 +254,19 @@ h4 > .rich-text > p {
 /******************************** END SEARCH ************************************/
 
 
+
+.cont div {
+  width: 280px;
+  height: 500px;
+  background-color: antiquewhite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
+
+
+
 @media (max-width: 415px) {
 
     h1 > .rich-text > p {
