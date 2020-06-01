@@ -108,7 +108,7 @@ WAGTAILSEARCH_BACKENDS = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'utc-db',
+        'NAME': 'utc-db3',
     }
 }
 

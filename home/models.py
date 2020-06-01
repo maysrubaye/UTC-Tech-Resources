@@ -11,36 +11,52 @@ from wagtail.search import index
 
 class HomePage(Page):
     heading = RichTextField(blank=True)
-    desc = RichTextField(blank=True)
-    service_card = StreamField([
-    	("Service_Card", customBlocks.ServiceCard())], null=True, blank=True)
+    description = RichTextField(blank=True)
+    resource_card = StreamField([
+    	("Resource_Card", customBlocks.ResourceCard())], null=True, blank=True)
 
     content_panels = Page.content_panels + [
     	FieldPanel('heading'),
-    	FieldPanel('desc'),
-    	StreamFieldPanel('service_card')
+    	FieldPanel('description'),
+    	StreamFieldPanel('resource_card')
     ]
 
 
-class SingleServicePage(Page):
-	backToMain = RichTextField(blank=True)
+class SingleResourcePage(Page):
 	heading = RichTextField(blank=True)
-	steps = StreamField([
-		("Step", customBlocks.StepCard())], null=True, blank=True)
+	content = StreamField([
+		("Content_Card", customBlocks.ContentCard())], null=True, blank=True)
 
 	content_panels = Page.content_panels + [
-		FieldPanel('backToMain'),
 		FieldPanel('heading'),
-		StreamFieldPanel('steps')
+		StreamFieldPanel('content')
 	]
 
 	search_fields = Page.search_fields + [ # Inherit search_fields from Page
         index.SearchField('heading', partial_match=True),
-        index.SearchField('steps', partial_match=True),
+        index.SearchField('content', partial_match=True),
     ]
 
-class staticQuiz(Page):
-    pass
+class Quiz(Page):
+    top_descriptions = RichTextField(blank=True)
+    first_q = RichTextField(blank=True)
+    ten_year_q = RichTextField(blank=True)
+    gpa_q = RichTextField(blank=True)
+    country_q = RichTextField(blank=True)
+    no_test_result = RichTextField(blank=True)
+    esl_result = RichTextField(blank=True)
+    math_egl_result = RichTextField(blank=True)
+
+    content_panels = Page.content_panels + [
+        FieldPanel('top_descriptions'),
+        FieldPanel('first_q'),
+        FieldPanel('ten_year_q'),
+        FieldPanel('gpa_q'),
+        FieldPanel('country_q'),
+        FieldPanel('no_test_result'),
+        FieldPanel('math_egl_result'),
+        FieldPanel('esl_result'),
+    ]
 
 
 

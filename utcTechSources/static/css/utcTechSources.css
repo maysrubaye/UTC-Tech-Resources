@@ -7,6 +7,10 @@ a {
     color: #114B8B;
 }
 
+p {
+  margin-bottom: 0;
+}
+
 body {
     font-family: poppins;
 }
@@ -275,7 +279,67 @@ h4 > .rich-text > p {
   border-radius: 8px;
 }
 
+/******************************** QUIZ PAGE ************************************/
+input[type="radio"] {
+  opacity: 0;
+  width: 0;
+}
 
+label {
+  display: inline-block;
+    background-color: #eee;
+    box-shadow: 0px 2px 2px rgba(0,0,0,0.15);
+    padding: 10px 20px;
+    font-family: sans-serif, Arial;
+    font-size: 16px;
+    border-radius: 4px;
+}
+
+label:hover {
+  background-color: #124b8b;
+  color: white;
+}
+
+
+input[type="radio"]:checked + label {
+    background-color: #124b8b;
+    color: white;
+}
+
+
+.qcard {
+    padding: 2% 4%;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    margin: 1%;
+}
+
+.rcard {
+  text-align: left;
+    background-color: #124b8b;
+    color: #fff;
+    margin: 1%;
+    padding: 2% 4%;
+    border-radius: 10px;
+    width: 75%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.rcard > .rich-text > p > a {
+    color: #ffd341;
+    text-decoration: underline;
+    font-weight: 400;
+    font-size: 1.3rem;
+}
+
+.rcard > .rich-text > p > a:hover {
+  cursor: pointer;
+  color: #ffd341;
+  text-decoration: underline;
+  font-style: italic;
+}
+/******************************** END QUIZ PAGE ************************************/
 
 @media (max-width: 415px) {
 
@@ -300,6 +364,7 @@ h4 > .rich-text > p {
         width: 90%;
     }
 }
+
 
 @media (max-width: 768px) {
     .search form {

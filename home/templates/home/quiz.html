@@ -7,7 +7,7 @@
 {% block content %}
 
 <style type="text/css">
-	input[type="radio"] {
+/*input[type="radio"] {
   opacity: 0;
   width: 0;
 }
@@ -67,7 +67,7 @@ input[type="radio"]:checked + label {
   color: #ffd341;
   text-decoration: underline;
   font-style: italic;
-}
+}*/
 
 </style>
 
@@ -82,13 +82,15 @@ input[type="radio"]:checked + label {
 		</div>
 
 		<div>
-			<h2>Please answer the quetions below to find out which placement test you should take</h2>
+			<h2>{{ page.top_descriptions|richtext }}</h2>
+			<!-- Please answer the quetions below to find out which placement test you should take -->
 			<br>
 		</div>
 
 		<div id="1" class="qcard row">
 			<div class="col-md-12">
-			<h5 class="question-title">Did you complete all your high school education in the United States or earn a U.S GED?</h5>
+			<h5 class="question-title">{{ page.first_q|richtext }}</h5>
+			<!-- Did you complete all your high school education in the United States or earn a U.S GED? -->
 			</div>
 
 			<div class="col-md-12">
@@ -101,8 +103,8 @@ input[type="radio"]:checked + label {
 		</div>
 
 		<div id="2" class="qcard" style="display: none;">
-			<h5 class="question-title">Did you graduate from a U.S high school in the last 10 years?</h5>
-
+			<h5 class="question-title">{{ page.ten_year_q|richtext }}</h5>
+		<!-- Did you graduate from a U.S high school in the last 10 years? -->
 				<input id="y-5-hs-us" type="radio" name="5-hs-us" value="Y">
 				<label for="y-5-hs-us">Yes</label>
 
@@ -111,8 +113,8 @@ input[type="radio"]:checked + label {
 		</div>
 
 		<div id="3" class="qcard" style="display: none;">
-			<h5 class="question-title">Did you have an overall (cumulative) high school GPA of 3.0 of higher?</h5>
-
+			<h5 class="question-title">{{ page.gpa_q|richtext }}</h5>
+			<!-- Did you have an overall (cumulative) high school GPA of 3.0 of higher? -->
 				<input id="y-gpa" type="radio" name="gpa" value="Y">
 				<label for="y-gpa">Yes</label>
 
@@ -121,8 +123,8 @@ input[type="radio"]:checked + label {
 		</div>
 
 		<div id="4" class="qcard" style="display: none;">
-			<h5 class="question-title">If you are from one of the countries below, please select the country or N/A if you are not from one of the countries below</h5>
-
+			<h5 class="question-title">{{ page.country_q|richtext }}</h5>
+			<!-- If you are from one of the countries below, please select the country or N/A if you are not from one of the countries below -->
 				<input id="ab" type="radio" name="country" value="Y">
 				<label for="ab">Antigua & Barbuda</label>
 
@@ -193,14 +195,16 @@ input[type="radio"]:checked + label {
 
 
 		<div id="adv" class="rcard" style="display: none;">
-			<div>
+			{{ page.no_test_result|richtext }}
+			<!-- <div>
 				<h2 style="text-align: left;">Talk to an Advisor first</h2>
 			</div>
-			You should talk to an academic advisor before taking any placement test.
+			You should talk to an academic advisor before taking any placement test. -->
 		</div>
 
 		<div id="egl" class="rcard" style="display: none;">
-			<div>
+			{{ page.math_egl_result|richtext }}
+			<!-- <div>
 				<h2 style="text-align: left;">Result: English and Math</h2>
 			</div>
 
@@ -211,18 +215,19 @@ input[type="radio"]:checked + label {
 			<a class="quiz_lnk" target="_blank" href="http://bit.ly/pgccenglish">bit.ly/pgccenglish</a> <br>
 
 			Learn more about taking the ALEKS-PPL Math Test<br>
-			<a class="quiz_lnk" target="_blank" href="https://bit.ly/pgccmath">bit.ly/pgccmath</a> 
+			<a class="quiz_lnk" target="_blank" href="https://bit.ly/pgccmath">bit.ly/pgccmath</a> --> 
 		</div>
 
 
 		<div id="esl" class="rcard" style="display: none;">
-			<div>
+			{{ page.esl_result|richtext }}
+			<!-- <div>
 				<h2>Result: ESL</h2>
 			</div>
 
 			You should take a Remote ESL Test <br>
 			Click the link below to learn more about how to take a Remote ESL Test <br>
-			<a class="quiz_lnk" target="_blank" href="http://bit.ly/pgccESL">bit.ly/pgccESL</a> 
+			<a class="quiz_lnk" target="_blank" href="http://bit.ly/pgccESL">bit.ly/pgccESL</a> --> 
 		</div>		
 	</div>
 <br><br><br><br><br>
