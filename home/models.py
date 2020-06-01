@@ -11,31 +11,34 @@ from wagtail.search import index
 
 class HomePage(Page):
     heading = RichTextField(blank=True)
-    description = RichTextField(blank=True)
-    resource_card = StreamField([
-    	("Resource_Card", customBlocks.ResourceCard())], null=True, blank=True)
+    desc = RichTextField(blank=True)
+    service_card = StreamField([
+    	("Service_Card", customBlocks.ServiceCard())], null=True, blank=True)
 
     content_panels = Page.content_panels + [
     	FieldPanel('heading'),
-    	FieldPanel('description'),
-    	StreamFieldPanel('resource_card')
+    	FieldPanel('desc'),
+    	StreamFieldPanel('service_card')
     ]
 
 
-class SingleResourcePage(Page):
+class SingleServicePage(Page):
+	backToMain = RichTextField(blank=True)
 	heading = RichTextField(blank=True)
-	content = StreamField([
-		("Content_Card", customBlocks.ContentCard())], null=True, blank=True)
+	steps = StreamField([
+		("Step", customBlocks.StepCard())], null=True, blank=True)
 
 	content_panels = Page.content_panels + [
+		FieldPanel('backToMain'),
 		FieldPanel('heading'),
-		StreamFieldPanel('content')
+		StreamFieldPanel('steps')
 	]
 
 	search_fields = Page.search_fields + [ # Inherit search_fields from Page
         index.SearchField('heading', partial_match=True),
-        index.SearchField('content', partial_match=True),
+        index.SearchField('steps', partial_match=True),
     ]
+
 
 class Quiz(Page):
     top_descriptions = RichTextField(blank=True)
