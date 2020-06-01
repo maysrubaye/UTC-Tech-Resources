@@ -72,6 +72,9 @@ button > .rich-text > p > a {
     font-size: 1.4rem;
 }
 
+.card-body {
+    padding: 2.5rem;
+}
 
 .left-sec {
     margin: 1% auto;
