@@ -39,27 +39,8 @@ class SingleServicePage(Page):
         index.SearchField('steps', partial_match=True),
     ]
 
-
-class Quiz(Page):
-    top_descriptions = RichTextField(blank=True)
-    first_q = RichTextField(blank=True)
-    ten_year_q = RichTextField(blank=True)
-    gpa_q = RichTextField(blank=True)
-    country_q = RichTextField(blank=True)
-    no_test_result = RichTextField(blank=True)
-    esl_result = RichTextField(blank=True)
-    math_egl_result = RichTextField(blank=True)
-
-    content_panels = Page.content_panels + [
-        FieldPanel('top_descriptions'),
-        FieldPanel('first_q'),
-        FieldPanel('ten_year_q'),
-        FieldPanel('gpa_q'),
-        FieldPanel('country_q'),
-        FieldPanel('no_test_result'),
-        FieldPanel('math_egl_result'),
-        FieldPanel('esl_result'),
-    ]
+class staticQuiz(Page):
+    pass
 
 
 

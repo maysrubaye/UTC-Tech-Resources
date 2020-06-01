@@ -17,12 +17,12 @@
 				{{ page.heading|richtext }}
 			</h1>
 			<h4>
-				{{ page.description|richtext }}
+				{{ page.desc|richtext }}
 			</h4>
 				{% include 'includes/searchbar.html' %}
 			<br><br>
 			<div class="row cards-row justify-content-center">
-			{% with blocks=page.resource_card %}
+			{% with blocks=page.service_card %}
 				{% for block in blocks %}
 					<div class="col-md-3">
 						{{ block }}
@@ -31,6 +31,12 @@
 			{% endwith %}
 			</div>
 		</div>
+
+<!-- 		<div class="col-md-5 right-img">
+			<a target="_blank" href="https://www.facebook.com/groups/12976695105/permalink/10163520219570106">
+				<img src="{% static 'img/tips.jpg' %}" height="775">
+			</a>
+		</div> -->
 
 		<div class="col-md-6">
 			
