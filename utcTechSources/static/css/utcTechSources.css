@@ -306,9 +306,6 @@ input[type="radio"]:checked + label {
     color: white;
 }
 
-.container {
-  margin-top: 5%;
-}
 
 .qcard {
     padding: 2% 4%;
