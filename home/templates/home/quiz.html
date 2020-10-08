@@ -5,73 +5,6 @@
 {% block body_class %}template-homepage{% endblock %}
 
 {% block content %}
-
-<style type="text/css">
-/*input[type="radio"] {
-  opacity: 0;
-  width: 0;
-}
-
-label {
-  display: inline-block;
-    background-color: #eee;
-    box-shadow: 0px 2px 2px rgba(0,0,0,0.15);
-    padding: 10px 20px;
-    font-family: sans-serif, Arial;
-    font-size: 16px;
-    border-radius: 4px;
-}
-
-label:hover {
-  background-color: #124b8b;
-  color: white;
-}
-
-
-input[type="radio"]:checked + label {
-    background-color: #124b8b;
-    color: white;
-}
-
-.container {
-  margin-top: 5%;
-}
-
-.qcard {
-    padding: 2% 4%;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
-    border-radius: 10px;
-    margin: 1%;
-}
-
-.rcard {
-  text-align: left;
-    background-color: #124b8b;
-    color: #fff;
-    margin: 1%;
-    padding: 2% 4%;
-    border-radius: 10px;
-    width: 60%;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-.quiz_lnk{
-  color: #ffd341;
-  text-decoration: underline;
-  font-weight: 600;
-}
-
-.quiz_lnk:hover {
-  cursor: pointer;
-  color: #ffd341;
-  text-decoration: underline;
-  font-style: italic;
-}*/
-
-</style>
-
-
 	<div class="container">
 		<div class="col-md-12">
 			<a href="/">
@@ -125,71 +58,7 @@ input[type="radio"]:checked + label {
 		<div id="4" class="qcard" style="display: none;">
 			<h5 class="question-title">{{ page.country_q|richtext }}</h5>
 			<!-- If you are from one of the countries below, please select the country or N/A if you are not from one of the countries below -->
-				<input id="ab" type="radio" name="country" value="Y">
-				<label for="ab">Antigua & Barbuda</label>
-
-				<input id="au" type="radio" name="country" value="Y">
-				<label for="au">Australia</label>
-
-				<input id="bah" type="radio" name="country" value="Y">
-				<label for="bah">Bahamas</label>
-
-				<input id="bar" type="radio" name="country" value="Y">
-				<label for="bar">Barbados</label>
-
-				<input id="bel" type="radio" name="country" value="Y">
-				<label for="bel">Belize</label>
-
-				<input id="ber" type="radio" name="country" value="Y">
-				<label for="ber">Bermuda</label>
-
-				<input id="ca" type="radio" name="country" value="Y">
-				<label for="ca">Canada</label>
-
-				<input id="ci" type="radio" name="country" value="Y">
-				<label for="ci">Cayman Island</label>
-
-				<input id="dom" type="radio" name="country" value="Y">
-				<label for="dom">Commonwealth of Dominica</label>
-
-				<input id="gre" type="radio" name="country" value="Y">
-				<label for="gre">Grenada</label>
-
-				<input id="guy" type="radio" name="country" value="Y">
-				<label for="guy">Guyana</label>
-
-				<input id="ir" type="radio" name="country" value="Y">
-				<label for="ir">Ireland</label>
-
-				<input id="jam" type="radio" name="country" value="Y">
-				<label for="jam">Jamaica</label>
-
-				<input id="mon" type="radio" name="country" value="Y">
-				<label for="mon">Montserrat</label>
-
-				<input id="nz" type="radio" name="country" value="Y">
-				<label for="nz">New Zealand</label>
-
-				<input id="kn" type="radio" name="country" value="Y">
-				<label for="kn">St. Kitts & Nevis</label>
-
-				<input id="lu" type="radio" name="country" value="Y">
-				<label for="lu">St. Lucia</label>
-
-				<input id="vg" type="radio" name="country" value="Y">
-				<label for="vg">St. Vincent & Grenadines</label>
-
-				<input id="tt" type="radio" name="country" value="Y">
-				<label for="tt">Trinidad & Tobago</label>
-
-				<input id="uk" type="radio" name="country" value="Y">
-				<label for="uk">United Kingdom</label>
-
-				<input id="vi" type="radio" name="country" value="Y">
-				<label for="vi">Virgin Islands</label>
-
-				<input id="na" type="radio" name="country" value="N">
-				<label for="na">N/A</label>
+			{% include 'home/includes/country_list.html' %}
 
 		</div>
 
