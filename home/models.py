@@ -61,6 +61,7 @@ class Quiz(Page):
 
 
 class VnscQuiz(Page):
+    top_descriptions = RichTextField(blank=True, help_text='use this to put a welcome message or say a little about the VNSC')
     q1 = models.CharField(max_length=500, blank=True)
     q2 = models.CharField(max_length=500, blank=True)
     q3 = models.CharField(max_length=500, blank=True)
@@ -75,6 +76,7 @@ class VnscQuiz(Page):
     final_result_to_schedule_appt = RichTextField(blank=True, help_text='this is where you can tell students to sign up for the VNSC')
     
     content_panels = Page.content_panels + [
+        FieldPanel('top_descriptions'),
         FieldPanel('q1'),
         FieldPanel('q1_result'),
         FieldPanel('q2'),
