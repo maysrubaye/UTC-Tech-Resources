@@ -1,0 +1,208 @@
+{% extends "base.html" %}
+{% load static %}
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+
+{% block content %}
+
+<div class="container">
+		<div>
+			<h2>{{ page.top_descriptions|richtext }}</h2>
+			<br>
+		</div>
+
+		<div id="q1" class="qcard row">
+			<div class="col-md-12">
+			<h5 class="question-title">{{ page.q1|richtext }}</h5>
+			</div>
+
+			<div class="col-md-12">
+				<input id="y-q1-a" type="radio" name="q1-a" value="Y">
+				<label for="y-q1-a">Yes</label>
+
+				<input id="n-q1-a" type="radio" name="q1-a" value="N">
+				<label for="n-q1-a">No</label>
+				</div>
+		</div>
+
+		<div id="q2" class="qcard" style="display: none;">
+			<h5 class="question-title">{{ page.q2|richtext }}</h5>
+		<!-- Did you graduate from a U.S high school in the last 10 years? -->
+				<input id="y-q2-a" type="radio" name="q2-a" value="Y">
+				<label for="y-q2-a">Yes</label>
+
+				<input id="n-q2-a" type="radio" name="q2-a" value="N">
+				<label for="n-q2-a">No</label>
+		</div>
+
+		<div id="q3" class="qcard" style="display: none;">
+			<h5 class="question-title">{{ page.q3|richtext }}</h5>
+			<!-- Did you have an overall (cumulative) high school GPA of 3.0 of higher? -->
+				<input id="y-q3-a" type="radio" name="q3-a" value="Y">
+				<label for="y-q3-a">Yes</label>
+
+				<input id="n-q3-a" type="radio" name="q3-a" value="N">
+				<label for="n-q3-a">No</label>
+		</div>
+
+		<div id="q4" class="qcard" style="display: none;">
+			<h5 class="question-title">{{ page.q4|richtext }}</h5>
+			<!-- If you are from one of the countries below, please select the country or N/A if you are not from one of the countries below -->
+				<input id="y-q4-a" type="radio" name="q4-a" value="Y">
+				<label for="y-q4-a">Yes</label>
+
+				<input id="n-q4-a" type="radio" name="q4-a" value="N">
+				<label for="n-q4-a">No</label>
+		</div>
+
+		<div id="q5" class="qcard" style="display: none;">
+			<h5 class="question-title">{{ page.q5|richtext }}</h5>
+			<!-- If you are from one of the countries below, please select the country or N/A if you are not from one of the countries below -->
+			<br>
+				<div id="short_quiz">
+					{% include 'home/includes/hardcoded_quiz.html' with yes=page.q5_result no=page.final_result_to_schedule_appt %}
+				</div>
+		</div>
+
+
+		<div id="q1_result" class="rcard" style="display: none;">
+			{{ page.q1_result|richtext }}
+		</div>
+
+		<div id="q2_result" class="rcard" style="display: none;">
+			{{ page.q2_result|richtext }}
+		</div>
+
+
+		<div id="q3_result" class="rcard" style="display: none;">
+			{{ page.q3_result|richtext }}
+		</div>	
+
+		<div id="q4_result" class="rcard" style="display: none;">
+			{{ page.q4_result|richtext }}
+		</div>
+
+
+	</div>
+<br><br><br><br><br>
+
+<script type="text/javascript">
+	
+	$(document).ready(function(){
+		// questions
+		var q1 = $("#q1");
+    	var q2 = $("#q2");
+    	var q3 = $("#q3");
+    	var q4 = $("#q4");
+    	var q5 = $("#q5");
+
+    	// the follow up results associated with the questions when answer is no
+    	var q1_result = $("#q1_result");
+    	var q2_result = $("#q2_result");
+    	var q3_result = $("#q3_result");
+    	var q4_result = $("#q4_result");
+
+    	// answers
+    	var q1_a = $("input[name='q1-a']");
+    	var q2_a = $("input[name='q2-a']");
+    	var q3_a = $("input[name='q3-a']");
+    	var q4_a = $("input[name='q4-a']");
+    	var q5_a = $("input[name='q5-a']");
+
+/*
+if 1 yes
+	ask 2
+	if 2 is yes
+		show 3
+		if 3 is yes
+			show 4
+				if 4 is yes
+					show 5
+						if 5 is yes
+							show last
+						if 5 is no
+							show take test
+				if 4 no
+					show no
+					hide 5
+		if 3 is no
+			show no
+			hide 4,5
+	if 2 is no
+		show no option
+		hide 3, 4, 5
+if 1 is no
+	show no option
+	hide 2, 3, 4, 5
+*/
+
+	$(q1_a).on( "click", function() {
+		if (($("input[name='q1-a']:checked").val()) == "Y") {//if yes
+				q2.show();
+				q1_result.hide()
+				q3_result.hide();
+				q4_result.hide();
+				q3.hide();
+				q4.hide();
+				q5.hide();
+				$(q2_a).on( "click", function() {					
+					if (($("input[name='q2-a']:checked").val()) == "Y") { // if 5 hs yes
+						q3.show();
+						q1_result.hide();
+						q2_result.hide();
+						q3_result.hide();
+						q4_result.hide();
+						q4.hide();
+						q5.hide();
+			    		$(q3_a).on( "click", function() {
+			  				if (($("input[name='q3-a']:checked").val()) == "Y") { // if gpa yes
+			  					q4.show();
+									q1_result.hide();
+									q2_result.hide();
+									q3_result.hide();
+									q4_result.hide();
+									q5.hide();
+			  						$(q4_a).on( "click", function() {
+						  				if (($("input[name='q4-a']:checked").val()) == "Y") { // if gpa yes
+						  					q5.show();
+  											q1_result.hide();
+											q2_result.hide();
+											q3_result.hide();
+											q4_result.hide();
+						  				} else {
+						  					q4_result.show();
+						  					q5.hide();
+						  				}
+									});
+								} else {
+									q3_result.show();
+									q4_result.hide();
+									q4.hide();
+									q5.hide();
+								}
+							});
+						} else {
+							q2_result.show();
+							q3_result.hide();
+							q4_result.hide();
+							q3.hide();
+							q4.hide();
+							q5.hide();
+						}
+					});
+				} else {
+					q1_result.show();
+					q2_result.hide();
+					q3_result.hide();
+					q4_result.hide();
+					q2.hide();
+					q3.hide();
+					q4.hide();
+					q5.hide();
+				}
+	});//end of first hs on click event
+
+});
+</script>
+
+{% endblock content %}

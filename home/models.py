@@ -37,6 +37,7 @@ class SingleResourcePage(Page):
         index.SearchField('content', partial_match=True),
     ]
 
+
 class Quiz(Page):
     top_descriptions = RichTextField(blank=True)
     first_q = RichTextField(blank=True)
@@ -59,6 +60,30 @@ class Quiz(Page):
     ]
 
 
+class VnscQuiz(Page):
+    q1 = models.CharField(max_length=500, blank=True)
+    q2 = models.CharField(max_length=500, blank=True)
+    q3 = models.CharField(max_length=500, blank=True)
+    q4 = models.CharField(max_length=500, blank=True)
+    q5 = models.CharField(max_length=500, blank=True)
 
-
-
+    q1_result = RichTextField(blank=True, help_text='this is the result if the answer is no to the previous question')
+    q2_result = RichTextField(blank=True, help_text='this is the result if the answer is no to the previous question')
+    q3_result = RichTextField(blank=True, help_text='this is the result if the answer is no to the previous question')
+    q4_result = RichTextField(blank=True, help_text='this is the result if the answer is no to the previous question')
+    q5_result = RichTextField(blank=True, help_text='this is the result if the answer is no to the previous question')
+    final_result_to_schedule_appt = RichTextField(blank=True, help_text='this is where you can tell students to sign up for the VNSC')
+    
+    content_panels = Page.content_panels + [
+        FieldPanel('q1'),
+        FieldPanel('q1_result'),
+        FieldPanel('q2'),
+        FieldPanel('q2_result'),
+        FieldPanel('q3'),
+        FieldPanel('q3_result'),
+        FieldPanel('q4'),
+        FieldPanel('q4_result'),
+        FieldPanel('q5'),
+        FieldPanel('q5_result'),
+        FieldPanel('final_result_to_schedule_appt'),
+    ]

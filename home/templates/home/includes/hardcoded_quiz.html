@@ -1,0 +1,154 @@
+{% load static %}
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+{% block content %}
+
+<style type="text/css">
+.hardcoded label {
+    display: inline-block;
+    background-color: #eee;
+    box-shadow: 0px 2px 2px rgba(0,0,0,0.15);
+    padding: 7px 20px;
+    font-family: sans-serif, Arial;
+    font-size: 15px;
+    border-radius: 50px;
+}	
+
+.hardcoded .qcard {
+    padding: 1% 4%;
+}
+
+.special_q5 .rcard {
+    margin-top: 5%;
+    font-size: 1.4rem;
+}
+</style>
+	
+	<div class="container ">
+		<div class="hardcoded">
+			<div id="1" class="qcard row">
+				<div class="col-md-12">
+				<h6 class="question-title">Did you complete all your high school education in the United States or earn a U.S GED?</h6>
+				</div>
+
+				<div class="col-md-12">
+					<input id="y-hs-us" type="radio" name="hs-us" value="Y">
+					<label for="y-hs-us">Yes</label>
+
+					<input id="n-hs-us" type="radio" name="hs-us" value="N">
+					<label for="n-hs-us">No</label>
+					</div>
+			</div>
+
+			<div id="2" class="qcard" style="display: none;">
+				<h6 class="question-title">Did you graduate from a U.S high school in the last 10 years?</h6>
+					<input id="y-5-hs-us" type="radio" name="5-hs-us" value="Y">
+					<label for="y-5-hs-us">Yes</label>
+
+					<input id="n-5-hs-us" type="radio" name="5-hs-us" value="N">
+					<label for="n-5-hs-us">No</label>
+			</div>
+
+			<div id="3" class="qcard" style="display: none;">
+				<h6 class="question-title">Did you have an overall (cumulative) high school GPA of 3.0 of higher?</h6>
+					<input id="y-gpa" type="radio" name="gpa" value="Y">
+					<label for="y-gpa">Yes</label>
+
+					<input id="n-gpa" type="radio" name="gpa" value="N">
+					<label for="n-gpa">No</label>
+			</div>
+		</div>
+
+	<div class="special_q5">
+		<div id="q5_result" class="rcard" style="display: none;">
+			{{ page.q5_result|richtext }}
+		</div>
+
+		<div id="q5_yes_result" class="rcard" style="display: none;">
+			{{ page.final_result_to_schedule_appt|richtext }}
+		</div>
+	</div>
+	</div>
+<br><br><br><br><br>
+<script type="text/javascript">
+	
+	$(document).ready(function(){
+
+	function semi_hide() {
+		$(".hardcoded *").children().prop('disabled', true);
+		cont.css('opacity', '0.4')
+	}
+
+		var q5_no = $("#q5_result");
+		var q5_yes = $("#q5_yes_result");
+
+		var d1 = $("#1");
+    	var d2 = $("#2");
+    	var d3 = $("#3");
+
+    	var q1 = $("input[name='hs-us']");
+    	var q2 = $("input[name='5-hs-us']");
+    	var q3 = $("input[name='gpa']");
+    	var cont = $(".hardcoded");
+
+    	var is_gpa_res;
+
+
+	$(q1).on( "click", function(event) {
+			is_hs_res = ($("input[name='hs-us']:checked").val());
+			
+			if (is_hs_res == "Y") {//if hs yes
+				d2.show();
+				d3.hide();
+
+				$(q2).on( "click", function() {
+	  				is_5_hs_res = ($("input[name='5-hs-us']:checked").val());
+					
+					if (is_5_hs_res == "Y") { // if 5 hs yes
+						d3.show();
+
+			    		$(q3).on( "click", function() {
+			  				is_gpa_res = ($("input[name='gpa']:checked").val());
+
+			  				if (is_gpa_res == "Y") { // if gpa yes
+			  					semi_hide();
+			  					q5_yes.show();
+
+			  				} else {
+								semi_hide();
+								q5_no.show();
+			  				}
+						});
+					} else {
+						d3.hide();
+						semi_hide();
+						q5_yes.hide();
+						q5_no.show();
+					}
+				});
+			} else { 
+				d2.hide();
+				d3.hide();
+				semi_hide();
+				q5_yes.hide();
+				q5_no.show();
+			}
+
+	});//end of first hs on click event
+});
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}
