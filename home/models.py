@@ -73,8 +73,9 @@ class VnscQuiz(Page):
     q3_result = RichTextField(blank=True, help_text='this is the result if the answer is no to the previous question')
     q4_result = RichTextField(blank=True, help_text='this is the result if the answer is no to the previous question')
     q5_result = RichTextField(blank=True, help_text='this is the result if the answer is no to the previous question')
-    final_result_to_schedule_appt = RichTextField(blank=True, help_text='this is where you can tell students to sign up for the VNSC')
-    
+    waiver_text = RichTextField(blank=True)
+    placement_test_text = RichTextField(blank=True)
+
     content_panels = Page.content_panels + [
         FieldPanel('top_descriptions'),
         FieldPanel('q1'),
@@ -87,5 +88,6 @@ class VnscQuiz(Page):
         FieldPanel('q4_result'),
         FieldPanel('q5'),
         FieldPanel('q5_result'),
-        FieldPanel('final_result_to_schedule_appt'),
+        FieldPanel('waiver_text'),
+        FieldPanel('placement_test_text'),        
     ]

@@ -60,14 +60,15 @@
 		</div>
 
 	<div class="special_q5">
-		<div id="q5_result" class="rcard" style="display: none;">
-			{{ page.q5_result|richtext }}
+		<div id="q5_waiver" class="rcard" style="display: none;">
+			{{ page.waiver_text|richtext }}
 		</div>
 
-		<div id="q5_yes_result" class="rcard" style="display: none;">
-			{{ page.final_result_to_schedule_appt|richtext }}
+		<div id="q5_placement" class="rcard" style="display: none;">
+			{{ page.placement_test_text|richtext }}
 		</div>
 	</div>
+
 	</div>
 <br><br><br><br><br>
 <script type="text/javascript">
@@ -79,8 +80,8 @@
 		cont.css('opacity', '0.4')
 	}
 
-		var q5_no = $("#q5_result");
-		var q5_yes = $("#q5_yes_result");
+		var q5_waiver = $("#q5_waiver");
+		var q5_placement = $("#q5_placement");
 
 		var d1 = $("#1");
     	var d2 = $("#2");
@@ -112,27 +113,27 @@
 
 			  				if (is_gpa_res == "Y") { // if gpa yes
 			  					semi_hide();
-			  					q5_yes.show();
+			  					q5_waiver.show();
 
 			  				} else {
 								semi_hide();
-								q5_no.show();
+								q5_placement.show();
 			  				}
 						});
 					} else {
 						d3.hide();
 						semi_hide();
-						q5_yes.hide();
-						q5_no.show();
+						q5_waiver.hide();
+						q5_placement.show();
 					}
 				});
 			} else { 
 				d2.hide();
 				d3.hide();
 				semi_hide();
-				q5_yes.hide();
-				q5_no.show();
-			}
+				q5_waiver.hide();
+				q5_placement.show();
+		}
 
 	});//end of first hs on click event
 });
