@@ -40,6 +40,23 @@
 					</div>
 			</div>
 
+<!-- 			<div id="2" class="qcard" style="display: none;">
+				<h6 class="question-title">Did you graduate from a U.S high school in the last 10 years?</h6>
+					<input id="y-5-hs-us" type="radio" name="5-hs-us" value="Y">
+					<label for="y-5-hs-us">Yes</label>
+
+					<input id="n-5-hs-us" type="radio" name="5-hs-us" value="N">
+					<label for="n-5-hs-us">No</label>
+			</div>
+
+			<div id="3" class="qcard" style="display: none;">
+				<h6 class="question-title">Did you have an overall (cumulative) high school GPA of 3.0 of higher?</h6>
+					<input id="y-gpa" type="radio" name="gpa" value="Y">
+					<label for="y-gpa">Yes</label>
+
+					<input id="n-gpa" type="radio" name="gpa" value="N">
+					<label for="n-gpa">No</label>
+			</div> -->
 		</div>
 
 	<div class="special_q5">
@@ -58,6 +75,11 @@
 	
 	$(document).ready(function(){
 
+	function semi_hide() {
+		$(".hardcoded *").children().prop('disabled', true);
+		cont.css('opacity', '0.4')
+	}
+
 		var q5_waiver = $("#q5_waiver");
 		var q5_placement = $("#q5_placement");
 
@@ -70,9 +92,11 @@
 			if (is_hs_res == "Y") {//if hs yes
 				q5_waiver.show();
 				q5_placement.hide();
+				semi_hide();
 			} else { 
 				q5_waiver.hide();
 				q5_placement.show();
+				semi_hide();
 		}
 
 	});//end of first hs on click event
