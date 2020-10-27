@@ -56,14 +56,22 @@
 				<label for="n-q4-a">No</label>
 		</div>
 
+
 		<div id="q5" class="qcard" style="display: none;">
 			<h5 class="question-title">{{ page.q5|richtext }}</h5>
 			<!-- If you are from one of the countries below, please select the country or N/A if you are not from one of the countries below -->
-			<br>
-				<div id="short_quiz">
-					{% include 'home/includes/hardcoded_quiz.html' with yes=page.q5_result no=page.final_result_to_schedule_appt %}
+				<input id="y-q5-a" type="radio" name="q5-a" value="Y">
+				<label for="y-q5-a">Yes</label>
+
+				<input id="n-q5-a" type="radio" name="q5-a" value="N">
+				<label for="n-q5-a">No</label>
+				<br><br>
+				<div id="q5_yes_result" style="display: none;">
+					{% include 'home/includes/hardcoded_quiz.html' %}
 				</div>
 		</div>
+
+		
 
 
 		<div id="q1_result" class="rcard" style="display: none;">
@@ -74,13 +82,16 @@
 			{{ page.q2_result|richtext }}
 		</div>
 
-
 		<div id="q3_result" class="rcard" style="display: none;">
 			{{ page.q3_result|richtext }}
 		</div>	
 
 		<div id="q4_result" class="rcard" style="display: none;">
 			{{ page.q4_result|richtext }}
+		</div>
+
+		<div id="q5_result" class="rcard" style="display: none;">
+			{{ page.q5_result|richtext }}
 		</div>
 
 
@@ -102,7 +113,8 @@
     	var q2_result = $("#q2_result");
     	var q3_result = $("#q3_result");
     	var q4_result = $("#q4_result");
-
+    	var q5_result = $("#q5_result")
+    	var q5_yes_result = $("#q5_yes_result");
     	// answers
     	var q1_a = $("input[name='q1-a']");
     	var q2_a = $("input[name='q2-a']");
@@ -110,32 +122,6 @@
     	var q4_a = $("input[name='q4-a']");
     	var q5_a = $("input[name='q5-a']");
 
-/*
-if 1 yes
-	ask 2
-	if 2 is yes
-		show 3
-		if 3 is yes
-			show 4
-				if 4 is yes
-					show 5
-						if 5 is yes
-							show last
-						if 5 is no
-							show take test
-				if 4 no
-					show no
-					hide 5
-		if 3 is no
-			show no
-			hide 4,5
-	if 2 is no
-		show no option
-		hide 3, 4, 5
-if 1 is no
-	show no option
-	hide 2, 3, 4, 5
-*/
 
 	$(q1_a).on( "click", function() {
 		if (($("input[name='q1-a']:checked").val()) == "Y") {//if yes
@@ -170,6 +156,19 @@ if 1 is no
 											q2_result.hide();
 											q3_result.hide();
 											q4_result.hide();
+											$(q5_a).on( "click", function() {
+								  				if (($("input[name='q5-a']:checked").val()) == "Y") { // if gpa yes
+								  					q5_result.show();
+		  											q1_result.hide();
+													q2_result.hide();
+													q3_result.hide();
+													q4_result.hide();
+													q5_yes_result.hide();
+								  				} else {
+								  					q5_result.hide();
+								  					q5_yes_result.show();
+								  				}
+											});
 						  				} else {
 						  					q4_result.show();
 						  					q5.hide();

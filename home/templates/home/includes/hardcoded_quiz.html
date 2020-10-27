@@ -28,7 +28,7 @@
 		<div class="hardcoded">
 			<div id="1" class="qcard row">
 				<div class="col-md-12">
-				<h6 class="question-title">Did you complete all your high school education in the United States or earn a U.S GED?</h6>
+				<h6 class="question-title">Did you complete all your high school education in the United States and graduate with a 3.0 cumulative GPA?</h6>
 				</div>
 
 				<div class="col-md-12">
@@ -40,23 +40,6 @@
 					</div>
 			</div>
 
-			<div id="2" class="qcard" style="display: none;">
-				<h6 class="question-title">Did you graduate from a U.S high school in the last 10 years?</h6>
-					<input id="y-5-hs-us" type="radio" name="5-hs-us" value="Y">
-					<label for="y-5-hs-us">Yes</label>
-
-					<input id="n-5-hs-us" type="radio" name="5-hs-us" value="N">
-					<label for="n-5-hs-us">No</label>
-			</div>
-
-			<div id="3" class="qcard" style="display: none;">
-				<h6 class="question-title">Did you have an overall (cumulative) high school GPA of 3.0 of higher?</h6>
-					<input id="y-gpa" type="radio" name="gpa" value="Y">
-					<label for="y-gpa">Yes</label>
-
-					<input id="n-gpa" type="radio" name="gpa" value="N">
-					<label for="n-gpa">No</label>
-			</div>
 		</div>
 
 	<div class="special_q5">
@@ -75,62 +58,19 @@
 	
 	$(document).ready(function(){
 
-	function semi_hide() {
-		$(".hardcoded *").children().prop('disabled', true);
-		cont.css('opacity', '0.4')
-	}
-
 		var q5_waiver = $("#q5_waiver");
 		var q5_placement = $("#q5_placement");
 
 		var d1 = $("#1");
-    	var d2 = $("#2");
-    	var d3 = $("#3");
-
     	var q1 = $("input[name='hs-us']");
-    	var q2 = $("input[name='5-hs-us']");
-    	var q3 = $("input[name='gpa']");
-    	var cont = $(".hardcoded");
-
-    	var is_gpa_res;
-
 
 	$(q1).on( "click", function(event) {
 			is_hs_res = ($("input[name='hs-us']:checked").val());
 			
 			if (is_hs_res == "Y") {//if hs yes
-				d2.show();
-				d3.hide();
-
-				$(q2).on( "click", function() {
-	  				is_5_hs_res = ($("input[name='5-hs-us']:checked").val());
-					
-					if (is_5_hs_res == "Y") { // if 5 hs yes
-						d3.show();
-
-			    		$(q3).on( "click", function() {
-			  				is_gpa_res = ($("input[name='gpa']:checked").val());
-
-			  				if (is_gpa_res == "Y") { // if gpa yes
-			  					semi_hide();
-			  					q5_waiver.show();
-
-			  				} else {
-								semi_hide();
-								q5_placement.show();
-			  				}
-						});
-					} else {
-						d3.hide();
-						semi_hide();
-						q5_waiver.hide();
-						q5_placement.show();
-					}
-				});
+				q5_waiver.show();
+				q5_placement.hide();
 			} else { 
-				d2.hide();
-				d3.hide();
-				semi_hide();
 				q5_waiver.hide();
 				q5_placement.show();
 		}
@@ -139,17 +79,6 @@
 });
 
 </script>
-
-
-
-
-
-
-
-
-
-
-
 
 
 {% endblock content %}
