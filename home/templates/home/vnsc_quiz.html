@@ -158,15 +158,15 @@
 											q4_result.hide();
 											$(q5_a).on( "click", function() {
 								  				if (($("input[name='q5-a']:checked").val()) == "Y") { // if gpa yes
-								  					q5_result.show();
+								  					q5_result.hide();
 		  											q1_result.hide();
 													q2_result.hide();
 													q3_result.hide();
 													q4_result.hide();
-													q5_yes_result.hide();
+													q5_yes_result.show();
 								  				} else {
-								  					q5_result.hide();
-								  					q5_yes_result.show();
+								  					q5_result.show();
+								  					q5_yes_result.hide();
 								  				}
 											});
 						  				} else {
