@@ -28,7 +28,7 @@
 		<div class="hardcoded">
 			<div id="1" class="qcard row">
 				<div class="col-md-12">
-				<h6 class="question-title">Did you complete all your high school education in the United States and graduate with a 3.0 cumulative GPA?</h6>
+				<h6 class="question-title">Did you complete all your high school education in the United States and graduate with 3.00 GPA?</h6>
 				</div>
 
 				<div class="col-md-12">
@@ -77,7 +77,7 @@
 
 	function semi_hide() {
 		$(".hardcoded *").children().prop('disabled', true);
-		cont.css('opacity', '0.4')
+		$(".hardcoded *").css('opacity', '0.4')
 	}
 
 		var q5_waiver = $("#q5_waiver");
@@ -92,9 +92,11 @@
 			if (is_hs_res == "Y") {//if hs yes
 				q5_waiver.show();
 				q5_placement.hide();
+				semi_hide();
 			} else { 
 				q5_waiver.hide();
 				q5_placement.show();
+				semi_hide();
 		}
 
 	});//end of first hs on click event
