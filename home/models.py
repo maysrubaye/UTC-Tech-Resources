@@ -75,6 +75,7 @@ class VnscQuiz(Page):
     q5_result = RichTextField(blank=True, help_text='this is the result if the answer is no to the previous question')
     waiver_text = RichTextField(blank=True)
     placement_test_text = RichTextField(blank=True)
+    high_school_gpa_question = RichTextField(blank=True)
 
     content_panels = Page.content_panels + [
         FieldPanel('top_descriptions'),
@@ -89,5 +90,6 @@ class VnscQuiz(Page):
         FieldPanel('q5'),
         FieldPanel('q5_result'),
         FieldPanel('waiver_text'),
-        FieldPanel('placement_test_text'),        
+        FieldPanel('placement_test_text'),
+        FieldPanel('high_school_gpa_question')      
     ]
